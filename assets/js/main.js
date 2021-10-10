@@ -73,8 +73,10 @@ var HEART_BEATS = {
         }
     },
     display: function (qty) {
+        this.render(this.genRandomInteger(100, 200));
+        setTimeout(() => $('.heart').remove(), 2500);
         setInterval(() => {
-            this.render(qty);
+            this.render(this.genRandomInteger(100, 200));
             setTimeout(() => $('.heart').remove(), 2500);
         }, 3500);
     },
