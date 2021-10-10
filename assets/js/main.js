@@ -59,9 +59,20 @@ var HEART_BEATS = {
 };
 HEART_BEATS.display(100);
 
+function screen0() {
+    // TODO
+}
+
 var _typingText = '';
 var _typingSpeed = 69;
 var _typingCharPosition = 0;
+
+// Màn 0: Xem video tình củm
+var video = document.getElementById('video');
+video.onended = function () {
+    $('.screen.screen-0').removeClass('d-flex').addClass('d-none');
+    setTimeout(() => changeScreen(1), 1000);
+};
 
 // Màn 1: Lời nói thâm tình
 function screen1() {
@@ -160,7 +171,7 @@ Sang năm mình bốc 8 hộp để tỷ lệ chọn dính phiếu bé ngoan nh�
             _typingCharPosition++;
             setTimeout(_typeWriterEffect, _typingSpeed);
         } else {
-            // $('.screen.screen-4 button[type="button"]').removeClass('d-none');
+            $('.screen.screen-4 button[type="button"]').removeClass('d-none');
         }
     };
 
@@ -227,7 +238,7 @@ Và quan trọng hơn hết là luôn luôn bên cạnh anh ha (ôi dồi sến 
             _typingCharPosition++;
             setTimeout(_typeWriterEffect, _typingSpeed);
         } else {
-            // $('.screen.screen-5 button[type="button"]').removeClass('d-none');
+            // $('.screen.screen-6 button[type="button"]').removeClass('d-none');
         }
     };
 
@@ -235,8 +246,7 @@ Và quan trọng hơn hết là luôn luôn bên cạnh anh ha (ôi dồi sến 
 }
 
 /*==================== CHANGE SCREEN ====================*/
-var currentScreen = 1;
-function changeScreen(screenNumber = 1) {
+function changeScreen(screenNumber = 0) {
     currentScreen = screenNumber;
 
     $(`.screen:not(.screen-${currentScreen})`).addClass('d-none');

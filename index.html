@@ -13,16 +13,21 @@
 <body>
     <div id="app">
         <div class="container">
-            <div class="screen screen-1">
+            <div class="screen screen-0 d-none align-items-center justify-content-center" style="height:100vh">
+                <video id="video" autoplay muted>
+                    <source src="./assets/video/my_love.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="screen screen-1 d-none">
                 <div class="typewriter mt-5"></div>
                 <button type="button" onClick="changeScreen(2)" class="btn-primary d-none w-100 py-2 mt-3">OK anh yêu</button>
                 <button type="button" onClick="changeScreen(2)" class="btn-secondary d-none w-100 py-2 mt-3">NO NO => OK anh yêu</button>
             </div>
-            <div class="screen screen-2">
+            <div class="screen screen-2 d-none">
                 <div class="typewriter mt-5"></div>
                 <button type="button" onClick="changeScreen(3)" class="btn-primary d-none py-2 px-3 mt-3">Quất thôi nào!</button>
             </div>
-            <div class="screen screen-3">
+            <div class="screen screen-3 d-none">
                 <div class="game-wrapper">
                     <div class="container">
                         <div class="row">
@@ -69,10 +74,11 @@
                     <button type="button" class="btn btn-primary" onClick="changeScreen(4)" style="width:150px;margin-top: 30px;">Ôi tiếc quá T_T</button>
                 </div>
             </div>
-            <div class="screen screen-4">
+            <div class="screen screen-4 d-none">
                 <div class="typewriter mt-5"></div>
+                <button type="button" onClick="changeScreen(5)" class="btn-primary d-none py-2 px-3" style="margin-top:28px">Ra về tay không T_T</button>
             </div>
-            <div class="screen screen-5">
+            <div class="screen screen-5 d-none">
                 <div class="typewriter mt-5"></div>
                 <div class="row">
                     <div class="col-md-6">
@@ -89,12 +95,15 @@
                     </div>
                 </div>
             </div>
-            <div class="screen screen-6">
+            <div class="screen screen-6 d-none">
                 <div class="typewriter my-5"></div>
             </div>
         </div>
         <div id="bg-animation"></div>
     </div>
+    <audio autoplay loop>
+        <source src="./assets/audio/big_big_world.mp3" type="audio/mpeg">
+    </audio>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
