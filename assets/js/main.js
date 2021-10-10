@@ -79,7 +79,7 @@ var HEART_BEATS = {
         setInterval(() => {
             this.render(qty);
             setTimeout(() => $('.heart').remove(), 2000);
-        }, 2250);
+        }, 3000);
     },
 };
 HEART_BEATS.display(100);
