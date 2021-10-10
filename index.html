@@ -12,7 +12,88 @@
 
 <body>
     <div id="app">
-        <!-- CONTENT -->
+        <div class="container">
+            <div class="screen screen-1">
+                <div class="typewriter mt-5"></div>
+                <button type="button" onClick="changeScreen(2)" class="btn-primary d-none w-100 py-2 mt-3">OK anh yêu</button>
+                <button type="button" onClick="changeScreen(2)" class="btn-secondary d-none w-100 py-2 mt-3">NO NO => OK anh yêu</button>
+            </div>
+            <div class="screen screen-2">
+                <div class="typewriter mt-5"></div>
+                <button type="button" onClick="changeScreen(3)" class="btn-primary d-none py-2 px-3 mt-3">Quất thôi nào!</button>
+            </div>
+            <div class="screen screen-3">
+                <div class="game-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="box-gift" data-key="1">
+                                    <img src="./assets/img/gift.png" alt="GIFT_1" data-toggle="modal" data-target="#confirmModal"/>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="box-gift" data-key="2">
+                                    <img src="./assets/img/gift.png" alt="GIFT_2" data-toggle="modal" data-target="#confirmModal"/>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="box-gift" data-key="3">
+                                    <img src="./assets/img/gift.png" alt="GIFT_3" data-toggle="modal" data-target="#confirmModal"/>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="box-gift" data-key="4">
+                                    <img src="./assets/img/gift.png" alt="GIFT_4" data-toggle="modal" data-target="#confirmModal"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                Eiu muốn chọn hộp quà này hả? <br/>
+                                Coi bộ có vẻ ngon đó =]]z <br/>
+                                Quất đi nào, chần chờ chi rứa...
+                                <div class="mt-3 text-right">
+                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" style="width:130px">Để nghĩ lại đã</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="width:130px" onClick="selectGift()">Quất luôn!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="troll d-none" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                    <img src="./assets/img/good_luck_again.png" alt="GOOD_LUCK_AGAIN"/>
+                    <button type="button" class="btn btn-primary" onClick="changeScreen(4)" style="width:150px;margin-top: 30px;">Ôi tiếc quá T_T</button>
+                </div>
+            </div>
+            <div class="screen screen-4">
+                <div class="typewriter mt-5"></div>
+            </div>
+            <div class="screen screen-5">
+                <div class="typewriter mt-5"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" onClick="selectAnswer(false)" class="btn-primary d-none w-100 py-2 mt-3">15%</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" onClick="selectAnswer(true)" class="btn-primary d-none w-100 py-2 mt-3">12.5%</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" onClick="selectAnswer(false)" class="btn-primary d-none w-100 py-2 mt-3">20%</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" onClick="selectAnswer(false)" class="btn-primary d-none w-100 py-2 mt-3">17.5%</button>
+                    </div>
+                </div>
+            </div>
+            <div class="screen screen-6">
+                <div class="typewriter my-5"></div>
+            </div>
+        </div>
+        <div id="bg-animation"></div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
