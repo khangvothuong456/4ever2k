@@ -13,9 +13,9 @@ body {
   display: block;
   width: 200px;
   height: 200px;
-  -webkit-animation: heartbeatAnimate 1s ease infinite;
-          animation: heartbeatAnimate 1s ease infinite;
-  opacity: 0.4;
+  -webkit-animation: heartbeatAnimate 2s ease infinite;
+          animation: heartbeatAnimate 2s ease infinite;
+  opacity: 0.23;
 }
 
 .heart__partial {
@@ -41,24 +41,30 @@ body {
 }
 
 @-webkit-keyframes heartbeatAnimate {
-  96% {
+  78% {
     -webkit-transform: translate(-50%, -50%) scale(0.8, 0.8);
             transform: translate(-50%, -50%) scale(0.8, 0.8);
   }
-  100% {
+  85% {
     -webkit-transform: translate(-50%, -50%) scale(1, 1);
             transform: translate(-50%, -50%) scale(1, 1);
+  }
+  100% {
+    opacity: 0;
   }
 }
 
 @keyframes heartbeatAnimate {
-  96% {
+  78% {
     -webkit-transform: translate(-50%, -50%) scale(0.8, 0.8);
             transform: translate(-50%, -50%) scale(0.8, 0.8);
   }
-  100% {
+  85% {
     -webkit-transform: translate(-50%, -50%) scale(1, 1);
             transform: translate(-50%, -50%) scale(1, 1);
+  }
+  100% {
+    opacity: 0;
   }
 }
 /*# sourceMappingURL=main.css.map */

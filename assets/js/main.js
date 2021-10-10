@@ -1,51 +1,85 @@
-var heart = {
-    element: '',
-    size: 200,
-    topPosition: 0,
-    leftPosition: 0,
-    createDOM: function () {
-        this.element = `<div class="heart">
+var HEART_BEATS = {
+    _heart: '',
+    _size: 200,
+    _minSize: 40,
+    _maxSize: 120,
+    _topPosition: 0,
+    _leftPosition: 0,
+    _bgElement: '#app',
+    _setSize: function (size) {
+        this._size = size;
+    },
+    _getSize: function () {
+        return this._size;
+    },
+    _setTopPosition: function (topPosition) {
+        this._topPosition = topPosition;
+    },
+    _getTopPosition: function () {
+        return this._topPosition;
+    },
+    _setLeftPosition: function (leftPosition) {
+        this._leftPosition = leftPosition;
+    },
+    _getLeftPosition: function () {
+        return this._leftPosition;
+    },
+    _setBgElement: function (bgElement) {
+        this._bgElement = bgElement;
+    },
+    _getBgElement: function () {
+        return this._bgElement;
+    },
+    _setRandomSize: function () {
+        this._size = Math.floor(Math.random() * (this._maxSize - this._minSize + 1)) + this._minSize;
+    },
+    _createHeartBeat: function () {
+        // Create a heart tag
+        this._heart = `<div class="heart">
                             <div class="heart__partial heart__left"></div>
                             <div class="heart__partial heart__right"></div>
                         </div>`;
-        this.element = $(this.element).css({
+
+        // Determine size and position
+        this._heart = $(this._heart).css({
             'top': `${Math.floor(Math.random() * (100 - 0 + 1)) + 0}%`,
             'left': `${Math.floor(Math.random() * (100 - 0 + 1)) + 0}%`,
-            'width': `${this.size}px`,
-            'height': `${this.size}px`
+            'width': `${this._size}px`,
+            'height': `${this._size}px`
         });
-        $(this.element).find('.heart__partial').css({
-            'top': `${(this.size * 40 / 200)}px`,
-            'width': `${(this.size * 70 / 200)}px`,
-            'height': `${(this.size * 125 / 200)}px`
+        $(this._heart).find('.heart__partial').css({
+            'top': `${(this._size * 40 / 200)}px`,
+            'width': `${(this._size * 70 / 200)}px`,
+            'height': `${(this._size * 125 / 200)}px`
         });
-        $(this.element).find('.heart__partial.heart__left').css({
-            'left': `${(this.size * 45 / 200)}px`,
+        $(this._heart).find('.heart__partial.heart__left').css({
+            'left': `${(this._size * 45 / 200)}px`,
         });
-        $(this.element).find('.heart__partial.heart__right').css({
-            'right': `${(this.size * 45 / 200)}px`,
+        $(this._heart).find('.heart__partial.heart__right').css({
+            'right': `${(this._size * 45 / 200)}px`,
         });
     },
-    setSize: function (size) {
-        if (size) {
-            this.size = size;
-        } else {
-            this.size = Math.floor(Math.random() * (120 - 40 + 1)) + 40;
+    render: function (qty = 1, options = {
+        size: null,
+        minSize: null,
+        maxSize: null,
+        topPosition: null,
+        leftPosition: null,
+        bgElement: null
+    }) {
+        let i = 0;
+        while (i < qty) {
+            this._setRandomSize();
+            this._createHeartBeat();
+            $(this._bgElement).append(this._heart);
+            i++;
         }
     },
-    display: function () {
-        this.createDOM();
-        $('#app').append(this.element);
+    display: function (qty) {
+        setInterval(() => {
+            this.render(qty);
+            setTimeout(() => $('.heart').remove(), 2000);
+        }, 2100);
     },
 };
-
-function drawHeartBeats(qty = 1, size = null) {
-    if (qty == '' || qty == null || isNaN(qty)) {
-        return;
-    }
-
-    for (let i = 0; i < qty; i++) {
-        heart.setSize(size);
-        heart.display();
-    }
-}
+HEART_BEATS.display(100);

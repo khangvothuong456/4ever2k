@@ -15,8 +15,8 @@ body {
   display: block;
   width: 200px;
   height: 200px;
-  animation: heartbeatAnimate 1s ease infinite;
-  opacity: 0.4;
+  animation: heartbeatAnimate 2s ease infinite;
+  opacity: 0.23;
   &__partial {
     background: #ff0000;
     width: 70px;
@@ -35,11 +35,14 @@ body {
     transform: rotate(30deg);
   }
   @keyframes heartbeatAnimate {
-    96% {
+    78% {
       transform: translate(-50%, -50%) scale(0.8, 0.8);
     }
-    100% {
+    85% {
       transform: translate(-50%, -50%) scale(1, 1);
+    }
+    100% {
+      opacity: 0;
     }
   }
 }
