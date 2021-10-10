@@ -13,8 +13,8 @@ body {
   display: block;
   width: 200px;
   height: 200px;
-  -webkit-animation: heartbeatAnimate 2s ease infinite;
-          animation: heartbeatAnimate 2s ease infinite;
+  -webkit-animation: heartbeatAnimate 3000ms ease infinite;
+          animation: heartbeatAnimate 3000ms ease infinite;
   opacity: 0.23;
 }
 

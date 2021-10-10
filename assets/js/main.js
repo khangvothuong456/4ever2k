@@ -1,8 +1,8 @@
 var HEART_BEATS = {
     _heart: '',
     _size: 200,
-    _minSize: 40,
-    _maxSize: 120,
+    _minSize: 28,
+    _maxSize: 100,
     _topPosition: 0,
     _leftPosition: 0,
     _bgElement: '#app',
@@ -42,10 +42,11 @@ var HEART_BEATS = {
 
         // Determine size and position
         this._heart = $(this._heart).css({
-            'top': `${Math.floor(Math.random() * (100 - 0 + 1)) + 0}%`,
-            'left': `${Math.floor(Math.random() * (100 - 0 + 1)) + 0}%`,
+            'top': this.genRandomInteger(0, 100) + '%',
+            'left': this.genRandomInteger(0, 100) + '%',
             'width': `${this._size}px`,
-            'height': `${this._size}px`
+            'height': `${this._size}px`,
+            'opacity': '0.' + this.genRandomInteger(17, 35),
         });
         $(this._heart).find('.heart__partial').css({
             'top': `${(this._size * 40 / 200)}px`,
@@ -59,14 +60,10 @@ var HEART_BEATS = {
             'right': `${(this._size * 45 / 200)}px`,
         });
     },
-    render: function (qty = 1, options = {
-        size: null,
-        minSize: null,
-        maxSize: null,
-        topPosition: null,
-        leftPosition: null,
-        bgElement: null
-    }) {
+    genRandomInteger: function (min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
+    render: function (qty = 1) {
         let i = 0;
         while (i < qty) {
             this._setRandomSize();
@@ -78,8 +75,8 @@ var HEART_BEATS = {
     display: function (qty) {
         setInterval(() => {
             this.render(qty);
-            setTimeout(() => $('.heart').remove(), 2000);
-        }, 2300);
+            setTimeout(() => $('.heart').remove(), 2500);
+        }, 3500);
     },
 };
 HEART_BEATS.display(100);
