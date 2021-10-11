@@ -1,22 +1,26 @@
-body {
-  width: 100%;
-  background-color: #222;
+@charset "UTF-8";
+.typewriter {
+  color: #eee;
+  font-size: 1.125rem;
+  white-space: pre-wrap;
 }
 
+/*==================== START: Heart bg animation ====================*/
 .heart {
   position: fixed;
   z-index: -1;
+  top: 50%;
+  left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  display: block;
+  display: inline-block;
   width: 200px;
   height: 200px;
   -webkit-animation: heartbeatAnimate 3000ms ease infinite;
           animation: heartbeatAnimate 3000ms ease infinite;
-  opacity: 0.23;
 }
 
-.heart__partial {
+.heart-partial {
   background: #ff0000;
   width: 70px;
   height: 125px;
@@ -26,13 +30,13 @@ body {
   border-radius: 50%;
 }
 
-.heart__left {
+.heart-partial__left {
   left: 45px;
   -webkit-transform: rotate(330deg);
           transform: rotate(330deg);
 }
 
-.heart__right {
+.heart-partial__right {
   right: 45px;
   -webkit-transform: rotate(30deg);
           transform: rotate(30deg);
@@ -66,13 +70,146 @@ body {
   }
 }
 
-.typewriter {
-  color: #eee;
-  font-size: 1.125rem;
-  white-space: pre-wrap;
+/*==================== END: Heart bg animation ====================*/
+/*==================== START: Màn 0 ====================*/
+.screen-0 .door {
+  display: block;
+  width: 100%;
 }
 
-.screen-3 .game-wrapper {
+.screen-0 .door-partial {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  width: 50.5%;
+  height: 100vh;
+  background-color: #151515;
+  -webkit-transition: all 300ms ease-in;
+  transition: all 300ms ease-in;
+}
+
+.screen-0 .door-partial__left {
+  left: 0;
+}
+
+.screen-0 .door-partial__left.--open {
+  left: -50.5%;
+}
+
+.screen-0 .door-partial__right {
+  right: 0;
+}
+
+.screen-0 .door-partial__right.--open {
+  right: -50.5%;
+}
+
+.screen-0 .btn-open-door {
+  position: absolute;
+  z-index: 10000;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 3rem;
+  padding: 0.5rem 1rem;
+  -webkit-transition: opacity 300ms ease-in;
+  transition: opacity 300ms ease-in;
+}
+
+.screen-0 .btn-open-door.--open {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*==================== END: Màn 0 ====================*/
+/*==================== START: Màn 1 ====================*/
+#video-box {
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.25rem;
+  background-color: #222;
+  overflow: hidden;
+}
+
+#video-box::before {
+  position: absolute;
+  z-index: 999;
+  content: "";
+  width: 10rem;
+  height: 125%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00ccff), to(#ff0000));
+  background: linear-gradient(#00ccff, #ff0000);
+  -webkit-animation: borderAnimate 4000ms linear infinite;
+          animation: borderAnimate 4000ms linear infinite;
+}
+
+@-webkit-keyframes borderAnimate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes borderAnimate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+#video-box video {
+  z-index: 1000;
+  -webkit-animation: showVideoAnimate 2000ms linear;
+          animation: showVideoAnimate 2000ms linear;
+}
+
+@-webkit-keyframes showVideoAnimate {
+  0% {
+    -webkit-transform: scale(0.4) rotate(0);
+            transform: scale(0.4) rotate(0);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(360deg);
+            transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes showVideoAnimate {
+  0% {
+    -webkit-transform: scale(0.4) rotate(0);
+            transform: scale(0.4) rotate(0);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(360deg);
+            transform: scale(1) rotate(360deg);
+  }
+}
+
+/*==================== END: Màn 1 ====================*/
+/*==================== START: Màn 4 ====================*/
+.screen-4 .game-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -81,7 +218,7 @@ body {
   width: 100%;
 }
 
-.screen-3 .box-gift {
+.screen-4 .box-gift {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -94,12 +231,12 @@ body {
   min-height: 180px;
 }
 
-.screen-3 .box-gift img {
+.screen-4 .box-gift img {
   width: 80%;
   opacity: 0.8;
 }
 
-.screen-3 .box-gift img.active {
+.screen-4 .box-gift img.active {
   opacity: 1;
   -webkit-animation: giftShakeAnimate 300ms ease infinite;
           animation: giftShakeAnimate 300ms ease infinite;
@@ -151,11 +288,13 @@ body {
   }
 }
 
-.screen-3 .box-gift.active {
+.screen-4 .box-gift.active {
   position: fixed;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
+
+/*==================== END: Màn 4 ====================*/
 /*# sourceMappingURL=main.css.map */

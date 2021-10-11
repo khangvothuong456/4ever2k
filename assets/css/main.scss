@@ -1,21 +1,21 @@
-body {
-  width: 100%;
-  background-color: #222;
+.typewriter {
+  color: #eee;
+  font-size: 1.125rem;
+  white-space: pre-wrap;
 }
 
-// START: Heart
+/*==================== START: Heart bg animation ====================*/
 .heart {
   position: fixed;
   z-index: -1;
-  // top: 50%;
-  // left: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  display: block;
+  display: inline-block;
   width: 200px;
   height: 200px;
   animation: heartbeatAnimate 3000ms ease infinite;
-  opacity: 0.23;
-  &__partial {
+  &-partial {
     background: #ff0000;
     width: 70px;
     height: 125px;
@@ -23,14 +23,14 @@ body {
     display: block;
     position: absolute;
     border-radius: 50%;
-  }
-  &__left {
-    left: 45px;
-    transform: rotate(330deg);
-  }
-  &__right {
-    right: 45px;
-    transform: rotate(30deg);
+    &__left {
+      left: 45px;
+      transform: rotate(330deg);
+    }
+    &__right {
+      right: 45px;
+      transform: rotate(30deg);
+    }
   }
   @keyframes heartbeatAnimate {
     78% {
@@ -44,18 +44,99 @@ body {
     }
   }
 }
-// END: Heart
+/*==================== END: Heart bg animation ====================*/
 
-// START: Typewriter effect
-.typewriter {
-  color: #eee;
-  font-size: 1.125rem;
-  white-space: pre-wrap;
+/*==================== START: Màn 0 ====================*/
+.screen-0 {
+  .door {
+    display: block;
+    width: 100%;
+    &-partial {
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      width: 50.5%;
+      height: 100vh;
+      background-color: #151515;
+      transition: all 300ms ease-in;
+      &__left {
+        left: 0;
+        &.--open {
+          left: -50.5%;
+        }
+      }
+      &__right {
+        right: 0;
+        &.--open {
+          right: -50.5%;
+        }
+      }
+    }
+  }
+  .btn-open-door {
+    position: absolute;
+    z-index: 10000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3rem;
+    padding: 0.5rem 1rem;
+    transition: opacity 300ms ease-in;
+    &.--open {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
 }
-// END: Typewriter effect
+/*==================== END: Màn 0 ====================*/
 
-// START: screen 3
-.screen-3 {
+/*==================== START: Màn 1 ====================*/
+#video-box {
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  background-color: #222;
+  overflow: hidden;
+  &::before {
+    position: absolute;
+    z-index: 999;
+    content: "";
+    width: 10rem;
+    height: 125%;
+    background: linear-gradient(#00ccff, #ff0000);
+    animation: borderAnimate 4000ms linear infinite;
+    @keyframes borderAnimate {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  video {
+    z-index: 1000;
+    animation: showVideoAnimate 2000ms linear;
+    @keyframes showVideoAnimate {
+      0% {
+        transform: scale(0.4) rotate(0);
+      }
+      100% {
+        transform: scale(1) rotate(360deg);
+      }
+    }
+  }
+}
+/*==================== END: Màn 1 ====================*/
+
+/*==================== START: Màn 4 ====================*/
+.screen-4 {
   .game-wrapper {
     position: absolute;
     top: 50%;
@@ -102,4 +183,4 @@ body {
     }
   }
 }
-// END: screen 3
+/*==================== END: Màn 4 ====================*/

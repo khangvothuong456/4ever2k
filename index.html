@@ -6,28 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <title>4ever2k - Khang yêu Khánh mãi mãi</title>
+    <title>4ever2k</title>
     <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 
-<body>
+<body style="background-color:#222">
     <div id="app">
         <div class="container">
-            <div class="screen screen-0 d-none align-items-center justify-content-center" style="height:100vh">
-                <video id="video" autoplay muted>
-                    <source src="./assets/video/my_love.mp4" type="video/mp4">
-                </video>
+            <div class="screen screen-0 d-none">
+                <div class="door">
+                    <div class="door-partial door-partial__left"></div>
+                    <div class="door-partial door-partial__right"></div>
+                </div>
+                <button class="btn-primary btn-open-door">Chạm vào tớ đi o.~</button>
             </div>
             <div class="screen screen-1 d-none">
-                <div class="typewriter mt-5"></div>
-                <button type="button" onClick="changeScreen(2)" class="btn-primary d-none w-100 py-2 mt-3">OK anh yêu</button>
-                <button type="button" onClick="changeScreen(2)" class="btn-secondary d-none w-100 py-2 mt-3">NO NO => OK anh yêu</button>
+                <div class="" style="height:100vh">
+                    <div id="video-box">
+                        <video src="./assets/video/my_love.mp4" muted></video>
+                    </div>
+                </div>
             </div>
             <div class="screen screen-2 d-none">
                 <div class="typewriter mt-5"></div>
-                <button type="button" onClick="changeScreen(3)" class="btn-primary d-none py-2 px-3 mt-3">Quất thôi nào!</button>
+                <button type="button" onClick="changeNextScreen()" class="btn-primary d-none w-100 py-2 mt-3">OK anh yêu</button>
+                <button type="button" onClick="changeNextScreen()" class="btn-secondary d-none w-100 py-2 mt-3">NO NO => OK anh yêu</button>
             </div>
             <div class="screen screen-3 d-none">
+                <div class="typewriter mt-5"></div>
+                <button type="button" onClick="changeNextScreen()" class="btn-primary d-none py-2 px-3 mt-3">Quất thôi nào!</button>
+            </div>
+            <div class="screen screen-4 d-none">
                 <div class="game-wrapper">
                     <div class="container">
                         <div class="row">
@@ -71,14 +80,14 @@
                 </div>
                 <div class="troll d-none" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
                     <img src="./assets/img/good_luck_again.png" alt="GOOD_LUCK_AGAIN"/>
-                    <button type="button" class="btn btn-primary" onClick="changeScreen(4)" style="width:150px;margin-top: 30px;">Ôi tiếc quá T_T</button>
+                    <button type="button" class="btn btn-primary" onClick="changeNextScreen()" style="width:150px;margin-top: 30px;">Ôi tiếc quá T_T</button>
                 </div>
             </div>
-            <div class="screen screen-4 d-none">
-                <div class="typewriter mt-5"></div>
-                <button type="button" onClick="changeScreen(5)" class="btn-primary d-none py-2 px-3" style="margin-top:28px">Ra về tay không T_T</button>
-            </div>
             <div class="screen screen-5 d-none">
+                <div class="typewriter mt-5"></div>
+                <button type="button" onClick="changeNextScreen()" class="btn-primary d-none py-2 px-3" style="margin-top:28px">Ra về tay không T_T</button>
+            </div>
+            <div class="screen screen-6 d-none">
                 <div class="typewriter mt-5"></div>
                 <div class="row">
                     <div class="col-md-6">
@@ -95,15 +104,15 @@
                     </div>
                 </div>
             </div>
-            <div class="screen screen-6 d-none">
+            <div class="screen screen-7 d-none">
                 <div class="typewriter my-5"></div>
             </div>
+            <div class="screen screen-8 d-none"></div>
+            <div class="screen screen-9 d-none"></div>
         </div>
-        <div id="bg-animation"></div>
+        <audio src="./assets/audio/big_big_world.mp3" loop></audio>
+        <div id="app__bg-animation"></div>
     </div>
-    <audio autoplay loop>
-        <source src="./assets/audio/big_big_world.mp3" type="audio/mpeg">
-    </audio>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
