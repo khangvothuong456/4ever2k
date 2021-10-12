@@ -1,6 +1,6 @@
 var _currentScreen = 0;
 var _typingText = '';
-var _typingSpeed = 0;
+var _typingSpeed = 50;
 var _typingCharPosition = 0;
 
 changeNextScreen(false);
@@ -179,11 +179,6 @@ Sang năm mình bốc 8 hộp để tỷ lệ chọn dính phiếu bé ngoan nh�
 }
 
 // Màn 6: Cho thêm cơ hội
-var isCorretAnswer = false;
-function selectAnswer(flg) {
-    isCorretAnswer = flg;
-    changeNextScreen();
-}
 function screen6() {
     _typingText = `Ơ mà khoan đã nào!
 
@@ -206,10 +201,36 @@ Nếu trả lời đúng thì anh sẽ phát quà khuyến khích ha =]]z`;
     _typeWriterEffect();
 }
 
+// Màn 6-1: Mất cmnl cơ hội =]]z
+function screen6_1() {
+    _typingText = `U là trời, lại sai nữa rồi à 😝
+
+Câu toán đơn giản như lầy mà cũng sai nừa 😆
+
+Tệ hết sức à 😝, thôi nào lên đây SG lại thì anh sẽ chỉ em tính toán tỷ lệ ha 😘
+
+Mặc dù lại mất cmnl cái cơ hội khuyến khích nhưng anh vẫn sẽ tặng cho em quà nè 💍
+
+Ai bảo em là cục dàng của chi 😊`;
+
+    _typingCharPosition = 0;
+
+    let _typeWriterEffect = () => {
+        if (_typingCharPosition < _typingText.length) {
+            document.querySelector('.screen-6-1 .typewriter').innerHTML += _typingText.charAt(_typingCharPosition);
+            _typingCharPosition++;
+            setTimeout(_typeWriterEffect, _typingSpeed);
+        } else {
+            $('.screen-6-1 button[type="button"]').removeClass('d-none');
+        }
+    };
+
+    _typeWriterEffect();
+}
+
 // Màn 7: Kết quả câu hỏi khuyến khích
 function screen7() {
-    if (isCorretAnswer) {
-        _typingText = `Ahaha, cuối cùng cũng tính đúng...
+    _typingText = `Ahaha, cuối cùng cũng tính đúng...
 
 Cứ ngỡ em lại sẽ để giành cơ hội cho năm sau nữa chứ =]]z 
 
@@ -226,9 +247,6 @@ Chúc eiu luôn vui vẻ, hạnh phúc bên người thân và anh he, lúc nào
 Và quan trọng hơn hết là luôn luôn bên cạnh anh ha (ôi dồi sến súa quá =]]z)
 
 À và một điều quan trọng nữa là cứ chọc t quạo t đá chít mọe nha <3`;
-    } else {
-        _typingText = ``;
-    }
 
     _typingCharPosition = 0;
 
@@ -263,6 +281,16 @@ function changeNextScreen(isNext = true, specificScreen = '') {
             case '3':
                 $('.screen.screen-2-2').addClass('d-none');
                 changeNextScreen();
+                break;
+            case '6_1':
+                $('.screen.screen-6').addClass('d-none');
+                $('.screen.screen-6-1').removeClass('d-none');
+                screen6_1();
+                break;
+            case '7':
+                $('.screen.screen-6-1').addClass('d-none');
+                changeNextScreen();
+                break;
         };
         return;
     }

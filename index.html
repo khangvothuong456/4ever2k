@@ -28,7 +28,7 @@
             <div class="screen screen-1 d-none">
                 <div class="" style="height:100vh">
                     <div id="video-box">
-                        <video src="./assets/video/my_love.mp4" muted></video>
+                        <video src="./assets/video/my_love.mp4" muted playsinline></video>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 <div class="typewriter mt-5"></div>
                 <button type="button" onClick="changeNextScreen()" class="k2-btn k2-btn-primary d-none w-100" style="margin-top:2rem">Quất thôi nào &#128525;</button>
             </div>
-            <div class="screen screen-4 d-none">
+            <div class="screen screen-4 d-none my-5">
                 <div class="game-wrapper">
                     <div class="container">
                         <div class="row">
@@ -99,24 +99,28 @@
             </div>
             <div class="screen screen-5 d-none">
                 <div class="typewriter mt-5"></div>
-                <button type="button" onClick="changeNextScreen()" class="btn-primary d-none py-2 px-3" style="margin-top:28px">Ra về tay không T_T</button>
+                <button type="button" onClick="changeNextScreen()" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">Ôi tiếc quá &#128557;</button>
             </div>
             <div class="screen screen-6 d-none">
                 <div class="typewriter mt-5"></div>
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="button" onClick="selectAnswer(false)" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">15%</button>
+                        <button type="button" onClick="changeNextScreen(false, '6_1')" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">15%</button>
                     </div>
                     <div class="col-md-6">
-                        <button type="button" onClick="selectAnswer(true)" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">12.5%</button>
+                        <button type="button" onClick="changeNextScreen()" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">12.5%</button>
                     </div>
                     <div class="col-md-6">
-                        <button type="button" onClick="selectAnswer(false)" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">20%</button>
+                        <button type="button" onClick="changeNextScreen(false, '6_1')" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">20%</button>
                     </div>
                     <div class="col-md-6">
-                        <button type="button" onClick="selectAnswer(false)" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">17.5%</button>
+                        <button type="button" onClick="changeNextScreen(false, '6_1')" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">17.5%</button>
                     </div>
                 </div>
+            </div>
+            <div class="screen screen-6-1 d-none">
+                <div class="typewriter mt-5"></div>
+                <button type="button" onClick="changeNextScreen(false, '7')" class="k2-btn k2-btn-primary d-none w-100" style="margin-top:2rem">Dạ, cảm ơn anh iu &#128536;</button>
             </div>
             <div class="screen screen-7 d-none">
                 <div class="typewriter my-5"></div>
