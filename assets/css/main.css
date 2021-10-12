@@ -1,10 +1,98 @@
 @charset "UTF-8";
+/*==================== START: Common ====================*/
 .typewriter {
   color: #eee;
   font-size: 1.125rem;
   white-space: pre-wrap;
 }
 
+.k2-btn {
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75em;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.k2-btn::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  -webkit-transform: translate3d(0, 0.75em, -1em);
+          transform: translate3d(0, 0.75em, -1em);
+  -webkit-transition: -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+.k2-btn:active {
+  -webkit-transform: translate(0em, 0.75em);
+          transform: translate(0em, 0.75em);
+}
+
+.k2-btn:active::before {
+  -webkit-transform: translate3d(0, 0, -1em);
+          transform: translate3d(0, 0, -1em);
+}
+
+.k2-btn-primary {
+  color: #382b22;
+  background: #ffe9e9;
+  border: 2px solid #b18597;
+  -webkit-transition: background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+.k2-btn-primary::before {
+  background: #f9c4d2;
+  -webkit-box-shadow: 0 0 0 2px #b18597;
+          box-shadow: 0 0 0 2px #b18597;
+}
+
+.k2-btn-primary:active {
+  background: #ffe9e9;
+}
+
+.k2-btn-secondary {
+  color: #fff;
+  background: #787980;
+  border: 2px solid #515253;
+  -webkit-transition: background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+.k2-btn-secondary::before {
+  background: #424344;
+  -webkit-box-shadow: 0 0 0 2px #515253;
+          box-shadow: 0 0 0 2px #515253;
+}
+
+.k2-btn-secondary:active {
+  background: #787980;
+}
+
+/*==================== END: Common ====================*/
 /*==================== START: Heart bg animation ====================*/
 .heart {
   position: fixed;
@@ -16,8 +104,8 @@
   display: inline-block;
   width: 200px;
   height: 200px;
-  -webkit-animation: heartbeatAnimate 3000ms ease infinite;
-          animation: heartbeatAnimate 3000ms ease infinite;
+  -webkit-animation: heartbeat1Animate 3000ms ease infinite;
+          animation: heartbeat1Animate 3000ms ease infinite;
 }
 
 .heart-partial {
@@ -40,34 +128,6 @@
   right: 45px;
   -webkit-transform: rotate(30deg);
           transform: rotate(30deg);
-}
-
-@-webkit-keyframes heartbeatAnimate {
-  78% {
-    -webkit-transform: translate(-50%, -50%) scale(0.8, 0.8);
-            transform: translate(-50%, -50%) scale(0.8, 0.8);
-  }
-  85% {
-    -webkit-transform: translate(-50%, -50%) scale(1, 1);
-            transform: translate(-50%, -50%) scale(1, 1);
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes heartbeatAnimate {
-  78% {
-    -webkit-transform: translate(-50%, -50%) scale(0.8, 0.8);
-            transform: translate(-50%, -50%) scale(0.8, 0.8);
-  }
-  85% {
-    -webkit-transform: translate(-50%, -50%) scale(1, 1);
-            transform: translate(-50%, -50%) scale(1, 1);
-  }
-  100% {
-    opacity: 0;
-  }
 }
 
 /*==================== END: Heart bg animation ====================*/
@@ -104,22 +164,69 @@
   right: -50.5%;
 }
 
-.screen-0 .btn-open-door {
+.screen-0 .middle-screen {
   position: absolute;
   z-index: 10000;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  border-radius: 3rem;
-  padding: 0.5rem 1rem;
+}
+
+.screen-0 .btn-heart {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  background-color: #ff0000;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-box-shadow: 0.75rem 0.75rem 8rem red;
+          box-shadow: 0.75rem 0.75rem 8rem red;
+  -webkit-animation: heartbeat2Animate 1000ms linear infinite;
+          animation: heartbeat2Animate 1000ms linear infinite;
+  cursor: pointer;
   -webkit-transition: opacity 300ms ease-in;
   transition: opacity 300ms ease-in;
 }
 
-.screen-0 .btn-open-door.--open {
+.screen-0 .btn-heart.--open {
   opacity: 0;
   pointer-events: none;
+}
+
+.screen-0 .btn-heart::before, .screen-0 .btn-heart::after {
+  content: "";
+  position: absolute;
+  background: #ff0000;
+}
+
+.screen-0 .btn-heart:before {
+  top: calc(-4rem + 1px);
+  width: 8rem;
+  height: 4rem;
+  border-top-left-radius: 4rem;
+  border-top-right-radius: 4rem;
+}
+
+.screen-0 .btn-heart::after {
+  left: calc(-4rem + 1px);
+  width: 4rem;
+  height: 8rem;
+  border-top-left-radius: 4rem;
+  border-bottom-left-radius: 4rem;
+}
+
+.screen-0 span.heart-of-khang {
+  display: inline-block;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  width: 8rem;
+  margin-top: 1rem;
+  color: #fff;
+  font-family: "Akronim", cursive;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 /*==================== END: Màn 0 ====================*/
@@ -147,7 +254,7 @@
 
 #video-box::before {
   position: absolute;
-  z-index: 999;
+  z-index: 998;
   content: "";
   width: 10rem;
   height: 125%;
@@ -179,32 +286,23 @@
   }
 }
 
+#video-box::after {
+  content: "";
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: calc(100% - 0.45rem);
+  height: calc(100% - 0.45rem);
+  background-color: #222;
+}
+
 #video-box video {
   z-index: 1000;
   -webkit-animation: showVideoAnimate 2000ms linear;
           animation: showVideoAnimate 2000ms linear;
-}
-
-@-webkit-keyframes showVideoAnimate {
-  0% {
-    -webkit-transform: scale(0.4) rotate(0);
-            transform: scale(0.4) rotate(0);
-  }
-  100% {
-    -webkit-transform: scale(1) rotate(360deg);
-            transform: scale(1) rotate(360deg);
-  }
-}
-
-@keyframes showVideoAnimate {
-  0% {
-    -webkit-transform: scale(0.4) rotate(0);
-            transform: scale(0.4) rotate(0);
-  }
-  100% {
-    -webkit-transform: scale(1) rotate(360deg);
-            transform: scale(1) rotate(360deg);
-  }
 }
 
 /*==================== END: Màn 1 ====================*/
@@ -297,4 +395,109 @@
 }
 
 /*==================== END: Màn 4 ====================*/
+/*==================== START: Animation ====================*/
+@-webkit-keyframes heartbeat1Animate {
+  78% {
+    -webkit-transform: translate(-50%, -50%) scale(0.8, 0.8);
+            transform: translate(-50%, -50%) scale(0.8, 0.8);
+  }
+  85% {
+    -webkit-transform: translate(-50%, -50%) scale(1, 1);
+            transform: translate(-50%, -50%) scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes heartbeat1Animate {
+  78% {
+    -webkit-transform: translate(-50%, -50%) scale(0.8, 0.8);
+            transform: translate(-50%, -50%) scale(0.8, 0.8);
+  }
+  85% {
+    -webkit-transform: translate(-50%, -50%) scale(1, 1);
+            transform: translate(-50%, -50%) scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes heartbeat2Animate {
+  0% {
+    -webkit-transform: rotate(45deg) scale(1);
+            transform: rotate(45deg) scale(1);
+  }
+  20% {
+    -webkit-transform: rotate(45deg) scale(0.9);
+            transform: rotate(45deg) scale(0.9);
+  }
+  40% {
+    -webkit-transform: rotate(45deg) scale(1.1);
+            transform: rotate(45deg) scale(1.1);
+  }
+  60% {
+    -webkit-transform: rotate(45deg) scale(1);
+            transform: rotate(45deg) scale(1);
+  }
+  80% {
+    -webkit-transform: rotate(45deg) scale(1.2);
+            transform: rotate(45deg) scale(1.2);
+  }
+  100% {
+    -webkit-transform: rotate(45deg) scale(1);
+            transform: rotate(45deg) scale(1);
+  }
+}
+
+@keyframes heartbeat2Animate {
+  0% {
+    -webkit-transform: rotate(45deg) scale(1);
+            transform: rotate(45deg) scale(1);
+  }
+  20% {
+    -webkit-transform: rotate(45deg) scale(0.9);
+            transform: rotate(45deg) scale(0.9);
+  }
+  40% {
+    -webkit-transform: rotate(45deg) scale(1.1);
+            transform: rotate(45deg) scale(1.1);
+  }
+  60% {
+    -webkit-transform: rotate(45deg) scale(1);
+            transform: rotate(45deg) scale(1);
+  }
+  80% {
+    -webkit-transform: rotate(45deg) scale(1.2);
+            transform: rotate(45deg) scale(1.2);
+  }
+  100% {
+    -webkit-transform: rotate(45deg) scale(1);
+            transform: rotate(45deg) scale(1);
+  }
+}
+
+@-webkit-keyframes showVideoAnimate {
+  0% {
+    -webkit-transform: scale(0.4) rotate(0);
+            transform: scale(0.4) rotate(0);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(360deg);
+            transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes showVideoAnimate {
+  0% {
+    -webkit-transform: scale(0.4) rotate(0);
+            transform: scale(0.4) rotate(0);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(360deg);
+            transform: scale(1) rotate(360deg);
+  }
+}
+
+/*==================== END: Animation ====================*/
 /*# sourceMappingURL=main.css.map */

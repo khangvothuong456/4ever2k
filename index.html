@@ -1,15 +1,16 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <title>4ever2k</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akronim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/main.css">
 </head>
-
 <body style="background-color:#222">
     <div id="app">
         <div class="container">
@@ -18,7 +19,11 @@
                     <div class="door-partial door-partial__left"></div>
                     <div class="door-partial door-partial__right"></div>
                 </div>
-                <button class="btn-primary btn-open-door">Chạm vào tớ đi o.~</button>
+                <div class="middle-screen">
+                    <div class="btn-heart btn-open-door">
+                        <span class="heart-of-khang">Khang</span>
+                    </div>
+                </div>
             </div>
             <div class="screen screen-1 d-none">
                 <div class="" style="height:100vh">
@@ -27,14 +32,23 @@
                     </div>
                 </div>
             </div>
-            <div class="screen screen-2 d-none">
-                <div class="typewriter mt-5"></div>
-                <button type="button" onClick="changeNextScreen()" class="btn-primary d-none w-100 py-2 mt-3">OK anh yêu</button>
-                <button type="button" onClick="changeNextScreen()" class="btn-secondary d-none w-100 py-2 mt-3">NO NO => OK anh yêu</button>
+            <div class="screen screen-2 d-none my-5">
+                <div class="typewriter"></div>
+                <button type="button" onClick="changeNextScreen()" class="k2-btn k2-btn-primary d-none w-100" style="margin-top:2rem">Dạ anh yêu &#128151;</button>
+                <button type="button" onClick="changeNextScreen(false, '2_1')" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">Dạ thui, bé hổng chơi đâu &#128539;</button>
             </div>
-            <div class="screen screen-3 d-none">
+            <div class="screen screen-2-1 d-none my-5">
+                <div class="typewriter"></div>
+                <button type="button" onClick="changeNextScreen()" class="k2-btn k2-btn-primary d-none w-100" style="margin-top:2rem">Ahihi, chơi cho anh vui ạ &#128536;</button>
+                <button type="button" onClick="changeNextScreen(false, '2_2')" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">Ahaha, giờ thích không chơi đấy, làm gì nhau nào ? &#128541;</button>
+            </div>
+            <div class="screen screen-2-2 d-none my-5">
+                <div class="typewriter"></div>
+                <button type="button" onClick="changeNextScreen(false, '3')" class="k2-btn k2-btn-primary d-none w-100" style="margin-top:2rem">Đồ người à &#128530;</button>
+            </div>
+            <div class="screen screen-3 d-none my-5">
                 <div class="typewriter mt-5"></div>
-                <button type="button" onClick="changeNextScreen()" class="btn-primary d-none py-2 px-3 mt-3">Quất thôi nào!</button>
+                <button type="button" onClick="changeNextScreen()" class="k2-btn k2-btn-primary d-none w-100" style="margin-top:2rem">Quất thôi nào &#128525;</button>
             </div>
             <div class="screen screen-4 d-none">
                 <div class="game-wrapper">
@@ -91,35 +105,28 @@
                 <div class="typewriter mt-5"></div>
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="button" onClick="selectAnswer(false)" class="btn-primary d-none w-100 py-2 mt-3">15%</button>
+                        <button type="button" onClick="selectAnswer(false)" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">15%</button>
                     </div>
                     <div class="col-md-6">
-                        <button type="button" onClick="selectAnswer(true)" class="btn-primary d-none w-100 py-2 mt-3">12.5%</button>
+                        <button type="button" onClick="selectAnswer(true)" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">12.5%</button>
                     </div>
                     <div class="col-md-6">
-                        <button type="button" onClick="selectAnswer(false)" class="btn-primary d-none w-100 py-2 mt-3">20%</button>
+                        <button type="button" onClick="selectAnswer(false)" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">20%</button>
                     </div>
                     <div class="col-md-6">
-                        <button type="button" onClick="selectAnswer(false)" class="btn-primary d-none w-100 py-2 mt-3">17.5%</button>
+                        <button type="button" onClick="selectAnswer(false)" class="k2-btn k2-btn-secondary d-none w-100" style="margin-top:2rem">17.5%</button>
                     </div>
                 </div>
             </div>
             <div class="screen screen-7 d-none">
                 <div class="typewriter my-5"></div>
             </div>
-            <div class="screen screen-8 d-none"></div>
-            <div class="screen screen-9 d-none"></div>
         </div>
         <audio src="./assets/audio/big_big_world.mp3" loop></audio>
         <div id="app__bg-animation"></div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="./assets/js/main.js"></script>
 </body>
-
 </html>

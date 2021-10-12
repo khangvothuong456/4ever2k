@@ -1,6 +1,6 @@
 var _currentScreen = 0;
 var _typingText = '';
-var _typingSpeed = 50;
+var _typingSpeed = 0;
 var _typingCharPosition = 0;
 
 changeNextScreen(false);
@@ -8,13 +8,13 @@ changeNextScreen(false);
 // Màn 0
 function screen0() {
     $('.btn-open-door').on('click', function () {
-        let screenDiv = $(this).parent();
+        let screenDiv = $(this).parents('.screen-0');
         $(this).addClass('--open');
-        screenDiv.find('.door-partial').addClass('--open');
-    
+        setTimeout(() => screenDiv.find('.door-partial').addClass('--open'), 500);
+
         // Lên nhạc và chuyển sang màn 1;
         $('audio').get(0).play();
-        changeNextScreen();
+        setTimeout(changeNextScreen, 1000);
     });
 }
 
@@ -28,13 +28,13 @@ function screen1() {
 
 // Màn 2: Lời nói thâm tình
 function screen2() {
-    _typingText = `Cục dàng thân ái!
+    _typingText = `Cục dàng thân ái 😘
 
 Tụi mình quen nhau thấm thoắt trôi qua cũng hơn 3 năm rồi nhỉ?
 
-Quen nhau lâu thế mà anh lại rất ít có dịp để tặng quà cho em, mà tính anh thì nói lời đường mật thì thôi bỏ đi =]]z
+Quen nhau lâu thế mà anh lại rất ít có dịp để tặng quà cho em, mà tính anh thì nói lời đường mật thì thôi bỏ đi 😂
 
-Nên nay sẵn nhân dịp 20-10, thì anh cũng sẵn làm ra website bốc đầu... ý nhầm là bốc thăm trúng thưởng để tặng em một món quà hên xui may rủi kkk...
+Nên nay sẵn nhân dịp 20-10, thì anh cũng sẵn làm ra website bốc đầu... ý nhầm là bốc thăm trúng thưởng để tặng em một món quà hên xui may rủi... 😚
 
 Thôi không dông dài chi nữa, mình vào thử vận luôn nha!`;
 
@@ -47,6 +47,54 @@ Thôi không dông dài chi nữa, mình vào thử vận luôn nha!`;
             setTimeout(_typeWriterEffect, _typingSpeed);
         } else {
             $('.screen-' + _currentScreen + ' button[type="button"]').removeClass('d-none');
+        }
+    };
+
+    _typeWriterEffect();
+}
+
+// Màn 2-1: Gấu không chịu chơi =]]z thì ép thôi chứ chi rứa =]]z
+function screen2_1() {
+    _typingText = `Gì gì ???
+    
+Ủa có nhầm không đấy cô nương, quà trao tặng mồm thế mà còn bày đặt ngượng ngùng từ chối à ? 😜
+
+Cho em chọn lại lần nữa đấy 😡`;
+
+    _typingCharPosition = 0;
+
+    let _typeWriterEffect = () => {
+        if (_typingCharPosition < _typingText.length) {
+            document.querySelector('.screen-2-1 .typewriter').innerHTML += _typingText.charAt(_typingCharPosition);
+            _typingCharPosition++;
+            setTimeout(_typeWriterEffect, _typingSpeed);
+        } else {
+            $('.screen-2-1 button[type="button"]').removeClass('d-none');
+        }
+    };
+
+    _typeWriterEffect();
+}
+
+// Màn 2-2: Gấu lại tiếp tục không chơi =]]z kệ nó, không chơi cũng phải chơi =]]z
+function screen2_2() {
+    _typingText = `Nay làm giá dữ thần trời 😡
+    
+Ủa bộ muốn không chơi là không chơi hả 😝
+
+Người ta bỏ công bỏ sức để làm chương trình mà đòi không chơi là không chơi à 😢
+
+Chơi thì chơi, không chơi thì chơi nhé 😜`;
+
+    _typingCharPosition = 0;
+
+    let _typeWriterEffect = () => {
+        if (_typingCharPosition < _typingText.length) {
+            document.querySelector('.screen-2-2 .typewriter').innerHTML += _typingText.charAt(_typingCharPosition);
+            _typingCharPosition++;
+            setTimeout(_typeWriterEffect, _typingSpeed);
+        } else {
+            $('.screen-2-2 button[type="button"]').removeClass('d-none');
         }
     };
 
@@ -197,12 +245,27 @@ Và quan trọng hơn hết là luôn luôn bên cạnh anh ha (ôi dồi sến 
     _typeWriterEffect();
 }
 
-// Màn 8
-
-// Màn 9
-
 /*==================== START: Chuyển màn ====================*/
-function changeNextScreen(isNext = true) {
+function changeNextScreen(isNext = true, specificScreen = '') {
+
+    if (isNext == false && specificScreen != '') {
+        switch (specificScreen) {
+            case '2_1':
+                $('.screen.screen-2').addClass('d-none');
+                $('.screen.screen-2-1').removeClass('d-none');
+                screen2_1();
+                break;
+            case '2_2':
+                $('.screen.screen-2-1').addClass('d-none');
+                $('.screen.screen-2-2').removeClass('d-none');
+                screen2_2();
+                break;
+            case '3':
+                $('.screen.screen-2-2').addClass('d-none');
+                changeNextScreen();
+        };
+        return;
+    }
 
     if (isNext) {
         $('.screen.screen-' + _currentScreen).addClass('d-none');
@@ -235,12 +298,6 @@ function changeNextScreen(isNext = true) {
             break;
         case 7:
             screen7();
-            break;
-        case 8:
-            screen8();
-            break;
-        case 9:
-            screen9();
             break;
         default:
             screen0();
