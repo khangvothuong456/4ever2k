@@ -1,4 +1,4 @@
-var _currentScreen = 0;
+var _currentScreen = 1;
 var _typingText = '';
 var _typingSpeed = 50;
 var _typingCharPosition = 0;
@@ -129,26 +129,18 @@ Phải là sao có thể xui đến thế chứ kkk!`;
 }
 
 // Màn 4: Bốc thăm => Bốc ra phiếu bé ngoan (vì mình đã chuẩn bị sẵn quà =]]z)
-var isGiftSelected = false;
-function selectGift() {
-    isGiftSelected = true;
-    setInterval(() => {
-        if (isGiftSelected) {
-            $('.game-wrapper').addClass('d-none');
-            $('.troll').removeClass('d-none');
-        }
-    }, 1000);
-}
 function screen4() {
-    $('.box-gift img').on('click', event => {
-        $('.box-gift img').addClass('d-none');
-        $(event.target).removeClass('d-none').addClass('active');
-        $(event.target).parent().addClass('active');
-    });
-    $('#confirmModal').on('hidden.bs.modal', function (e) {
-        if (!isGiftSelected) {
-            $('.box-gift img').removeClass('d-none').removeClass('active');
-            $('.box-gift').removeClass('active');
+    $('.gift-wrapper').on('click', event => {
+        let gift = $(event.currentTarget);
+        if (gift.hasClass('active') == false) {
+            $('.gift-wrapper.active').removeClass('active');
+            gift.addClass('active');
+        } else {
+            // Mở hộp
+            setInterval(() => {
+                $('.gameboard').addClass('d-none');
+                $('.troll').removeClass('d-none');
+            }, 1000);
         }
     });
 }

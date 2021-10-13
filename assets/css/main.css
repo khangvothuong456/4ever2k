@@ -307,16 +307,20 @@
 
 /*==================== END: Màn 1 ====================*/
 /*==================== START: Màn 4 ====================*/
-.screen-4 .game-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 100%;
+.screen-4 .gameboard {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: -48px;
+  margin-left: -15px;
+  margin-right: -15px;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  margin-bottom: -48px;
 }
 
-.screen-4 .box-gift {
+.screen-4 .gameboard-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -326,72 +330,61 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-height: 180px;
+  width: 50%;
+  height: 50vh;
 }
 
-.screen-4 .box-gift img {
-  width: 80%;
-  opacity: 0.8;
+.screen-4 .gameboard-box:nth-child(1) .gift-wrapper.active {
+  -webkit-transform: translate(25vw, 25vh);
+          transform: translate(25vw, 25vh);
 }
 
-.screen-4 .box-gift img.active {
+.screen-4 .gameboard-box:nth-child(2) .gift-wrapper.active {
+  -webkit-transform: translate(-25vw, 25vh);
+          transform: translate(-25vw, 25vh);
+}
+
+.screen-4 .gameboard-box:nth-child(3) .gift-wrapper.active {
+  -webkit-transform: translate(25vw, -25vh);
+          transform: translate(25vw, -25vh);
+}
+
+.screen-4 .gameboard-box:nth-child(4) .gift-wrapper.active {
+  -webkit-transform: translate(-25vw, -25vh);
+          transform: translate(-25vw, -25vh);
+}
+
+.screen-4 .gift {
+  width: 10rem;
+  height: 10rem;
+  opacity: 0.85;
+  -webkit-animation: shakeGift 1500ms linear infinite;
+          animation: shakeGift 1500ms linear infinite;
+}
+
+.screen-4 .gift-wrapper {
+  display: inline-block;
+  -webkit-transition: all 1200ms ease;
+  transition: all 1200ms ease;
+}
+
+.screen-4 .gift-wrapper.active > .gift {
+  width: 12rem;
+  height: 12rem;
   opacity: 1;
-  -webkit-animation: giftShakeAnimate 300ms ease infinite;
-          animation: giftShakeAnimate 300ms ease infinite;
+  -webkit-animation: shakeGift 500ms linear infinite;
+          animation: shakeGift 500ms linear infinite;
 }
 
-@-webkit-keyframes giftShakeAnimate {
-  0% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
+@media (max-width: 767.98px) {
+  .screen-4 .gift {
+    width: 6rem;
+    height: 6rem;
   }
-  25% {
-    -webkit-transform: rotateZ(10deg);
-            transform: rotateZ(10deg);
+  .screen-4 .gift-wrapper.active > .gift {
+    width: 9rem;
+    height: 9rem;
   }
-  50% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
-  }
-  75% {
-    -webkit-transform: rotateZ(-10deg);
-            transform: rotateZ(-10deg);
-  }
-  100% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
-  }
-}
-
-@keyframes giftShakeAnimate {
-  0% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
-  }
-  25% {
-    -webkit-transform: rotateZ(10deg);
-            transform: rotateZ(10deg);
-  }
-  50% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
-  }
-  75% {
-    -webkit-transform: rotateZ(-10deg);
-            transform: rotateZ(-10deg);
-  }
-  100% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
-  }
-}
-
-.screen-4 .box-gift.active {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 /*==================== END: Màn 4 ====================*/
@@ -496,6 +489,52 @@
   100% {
     -webkit-transform: scale(1) rotate(360deg);
             transform: scale(1) rotate(360deg);
+  }
+}
+
+@-webkit-keyframes shakeGift {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  25% {
+    -webkit-transform: rotateZ(-10deg);
+            transform: rotateZ(-10deg);
+  }
+  50% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  75% {
+    -webkit-transform: rotateZ(10deg);
+            transform: rotateZ(10deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+}
+
+@keyframes shakeGift {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  25% {
+    -webkit-transform: rotateZ(-10deg);
+            transform: rotateZ(-10deg);
+  }
+  50% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  75% {
+    -webkit-transform: rotateZ(10deg);
+            transform: rotateZ(10deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
   }
 }
 
