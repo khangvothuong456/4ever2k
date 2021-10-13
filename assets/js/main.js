@@ -1,4 +1,4 @@
-var _currentScreen = 1;
+var _currentScreen = 0;
 var _typingText = '';
 var _typingSpeed = 50;
 var _typingCharPosition = 0;
