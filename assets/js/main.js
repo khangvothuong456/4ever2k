@@ -199,7 +199,7 @@ function screen6_1() {
 
 Câu toán đơn giản như lầy mà cũng sai nừa 😆
 
-Tệ hết sức à 😝, thôi nào lên đây SG lại thì anh sẽ chỉ em tính toán tỷ lệ ha 😘
+Tệ hết sức à 😝, thôi nào lên SG lại thì anh sẽ chỉ em tính toán tỷ lệ ha 😘
 
 Mặc dù lại mất cmnl cái cơ hội khuyến khích nhưng anh vẫn sẽ tặng cho em quà nè 💍
 
@@ -255,6 +255,34 @@ Và quan trọng hơn hết là luôn luôn bên cạnh anh ha (ôi dồi sến 
     _typeWriterEffect();
 }
 
+// màn 8:
+function screen8() {
+    _typingText = `Thế là 20-10 năm nay bé Khánh cũng có quà rồi ha
+
+Thôi trò chơi bốc thăm trúng thưởng đến đây là kết thúc òi <3
+
+Chúc eiu luôn vui vẻ, hạnh phúc bên người thân và anh he, lúc nào cũng tươi cười, lạc quan, xinh đẹp nè
+
+Và quan trọng hơn hết là luôn luôn bên cạnh anh ha (ôi dồi sến súa quá =]]z)
+
+À và một điều quan trọng nữa là cứ chọc t quạo t đá chít mọe nha <3`;
+
+    _typingCharPosition = 0;
+
+    let _typeWriterEffect = () => {
+        if (_typingCharPosition < _typingText.length) {
+            document.querySelector('.screen-8 .typewriter').innerHTML += _typingText.charAt(_typingCharPosition);
+            _typingCharPosition++;
+            setTimeout(_typeWriterEffect, _typingSpeed);
+        } else {
+            $('.screen-8 button[type="button"]').removeClass('d-none');
+        }
+    };
+
+    _typeWriterEffect();
+}
+
+
 /*==================== START: Chuyển màn ====================*/
 function changeNextScreen(isNext = true, specificScreen = '') {
 
@@ -279,9 +307,10 @@ function changeNextScreen(isNext = true, specificScreen = '') {
                 $('.screen.screen-6-1').removeClass('d-none');
                 screen6_1();
                 break;
-            case '7':
+            case '8':
                 $('.screen.screen-6-1').addClass('d-none');
-                changeNextScreen();
+                $('.screen.screen-8').removeClass('d-none');
+                screen8();
                 break;
         };
         return;
@@ -318,6 +347,9 @@ function changeNextScreen(isNext = true, specificScreen = '') {
             break;
         case 7:
             screen7();
+            break;
+        case 8:
+            screen8();
             break;
         default:
             screen0();
